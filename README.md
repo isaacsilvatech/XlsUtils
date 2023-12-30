@@ -1,4 +1,4 @@
-# XlsUtils
+# XlsUtils - Gere Excels com Facilidade
 
 ## Visão geral
 Uma biblioteca Java leve para simplificar a geração de planilhas Excel com estilos personalizáveis. Esta biblioteca fornece uma interface fácil de usar para criar arquivos Excel a partir de uma lista de dados, permitindo que você se concentre no conteúdo da sua planilha em vez de lidar com as complexidades da criação de arquivos Excel.
