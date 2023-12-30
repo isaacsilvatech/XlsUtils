@@ -9,7 +9,7 @@ public class XlsStyle implements Cloneable {
 	protected XlsColor borderColor = XlsColor.GREY_25_PERCENT;
 	private BorderStyle border = BorderStyle.THIN;
 
-	protected XlsFont font = new XlsFont("Arial", XlsFont.NORMAL, 0);
+	protected XlsFont font = new XlsFont("Arial", XlsFont.NORMAL, 11);
 	protected XlsAlignment alignment = XlsAlignment.START;
 
 	public XlsColor getColor() {

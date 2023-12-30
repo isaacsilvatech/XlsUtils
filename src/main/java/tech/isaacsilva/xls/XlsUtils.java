@@ -32,15 +32,7 @@ public class XlsUtils {
 	public static byte[] getBytes(List<XlsColumn> columns, List<Object[]> list, XlsCustomCellFn customCellFn)
 			throws IOException {
 
-		Workbook wb = new XSSFWorkbook();
-
-		Sheet sheet = wb.createSheet("Planilha");
-
-		createTitle(wb, sheet, columns, 0);
-		createData(wb, sheet, list, columns, customCellFn, 1);
-		createFooter(wb, sheet, list, columns);
-
-		autoSizeColumn(sheet, columns.size());
+		Workbook wb = getWorkbook(columns, list, customCellFn);
 
 		return toByteArray(wb);
 	}
@@ -56,10 +48,13 @@ public class XlsUtils {
 
 			if (column.isFooterEnabled()) {
 				Cell cell = row.createCell(numberOfColumn);
+				
+				XlsValueFn footerValueFn = column.getFooterValueFn();
+				if(Objects.nonNull(footerValueFn)) {
+					Object value = footerValueFn.getValue(getValuesOfColumn(column, list));
 
-				Object value = column.getFooterValueFn().getValue(getValuesOfColumn(column, list));
-
-				setValue(cell, value, column.getType());
+					setValue(cell, value, column.getType());
+				}
 
 				CellStyle style = getCellStyle(wb, column.getFooterStyle(), column.getType().getFormat());
 				cell.setCellStyle(style);
@@ -80,9 +75,9 @@ public class XlsUtils {
 	private static void createData(Workbook wb, Sheet sheet, List<Object[]> list, List<XlsColumn> columns,
 			XlsCustomCellFn customCellFn, int numberOfRowInit) {
 
-		for (int numberOfRow = numberOfRowInit; numberOfRow < list.size(); numberOfRow++) {
+		for (int numberOfRow = 0; numberOfRow < list.size(); numberOfRow++) {
 
-			Row row = sheet.createRow(numberOfRow);
+			Row row = sheet.createRow(numberOfRow + numberOfRowInit);
 			Object[] objectRow = list.get(numberOfRow);
 
 			for (int numberOfColumn = 0; numberOfColumn < columns.size(); numberOfColumn++) {
@@ -215,5 +210,24 @@ public class XlsUtils {
 
 	public static byte[] getBytes(List<XlsColumn> colunas, List<Object[]> lista) throws IOException {
 		return getBytes(colunas, lista, null);
+	}
+	
+	public static Workbook getWorkbook(List<XlsColumn> columns, List<Object[]> list) {
+		return getWorkbook(columns, list, null);
+	}
+
+	public static Workbook getWorkbook(List<XlsColumn> columns, List<Object[]> list, XlsCustomCellFn customCellFn) {
+		
+		Workbook wb = new XSSFWorkbook();
+
+		Sheet sheet = wb.createSheet("Planilha");
+
+		createTitle(wb, sheet, columns, 0);
+		createData(wb, sheet, list, columns, customCellFn, 1);
+		createFooter(wb, sheet, list, columns);
+
+		autoSizeColumn(sheet, columns.size());
+		
+		return wb;
 	}
 }
