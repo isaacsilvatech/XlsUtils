@@ -25,7 +25,7 @@ Uma biblioteca Java leve para simplificar a geração de planilhas Excel com est
 ```
 
 ## Excemplo estiloso:
-![Capturar2](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/92f8d5ea-4e3b-49e5-9fde-1d2e0f4c1492)
+![Capturar2](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/ab8ef175-fec5-43f8-962f-56db4fe77418)
 ```
 		List<Object[]> lista = getList();
 		
