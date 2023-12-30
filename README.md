@@ -9,7 +9,7 @@ Uma biblioteca Java leve para simplificar a geração de planilhas Excel com est
 - **Configuração flexível de colunas:** configure cada coluna com estilos, tipos e cálculos de rodapé específicos.
 
 ## Excemplo simples:
-![Capturar2](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/d405f7a4-e2ac-4bc6-96af-0e1bfdf8a124)
+![Capturar](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/2c952349-9792-49c0-a784-d16cb7e119c4)
 ```
 		List<Object[]> lista = getList();
 		
@@ -25,7 +25,7 @@ Uma biblioteca Java leve para simplificar a geração de planilhas Excel com est
 ```
 
 ## Excemplo estiloso:
-![Capturar](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/057f2862-d907-4a5c-8d82-9f0487b75925)
+![Capturar2](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/be375bd9-a3da-4811-95ba-15af3323a68a)
 ```
 		List<Object[]> lista = getList();
 		
