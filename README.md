@@ -8,7 +8,9 @@ Uma biblioteca Java leve para simplificar a geração de planilhas Excel com est
 - **Estilos personalizáveis:** defina estilos para títulos, linhas e rodapés para melhorar a aparência visual da sua planilha.
 - **Configuração flexível de colunas:** configure cada coluna com estilos, tipos e cálculos de rodapé específicos.
 
-## Exemplo simples:
+## Exemplos
+
+### Exemplo simples:
 ![Capturar](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/2c952349-9792-49c0-a784-d16cb7e119c4)
 ```
 		List<Object[]> lista = getList();
@@ -24,7 +26,7 @@ Uma biblioteca Java leve para simplificar a geração de planilhas Excel com est
 		workbook.write(new FileOutputStream("excel.xlsx"));
 ```
 
-## Exemplo estiloso:
+### Exemplo estiloso:
 ![Capturar2](https://github.com/isaacsilvatech/XlsUtils/assets/145171555/ab8ef175-fec5-43f8-962f-56db4fe77418)
 ```
 		List<Object[]> lista = getList();
